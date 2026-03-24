@@ -58,6 +58,11 @@
       font-size: 16px;
       color: #ffdd57;
     }
+
+    .checkbox-container {
+      margin-top: 10px;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
@@ -71,6 +76,11 @@
   <div id="checkerPage" class="hidden">
     <h2>Password Strength Checker</h2>
     <input type="password" id="password" placeholder="Enter your password" onkeyup="checkPassword()">
+    <div class="checkbox-container">
+      <label>
+        <input type="checkbox" onclick="togglePassword()"> Show Password
+      </label>
+    </div>
     <div id="result"></div>
     <div class="bar"><div class="fill" id="strengthBar"></div></div>
     <div id="suggestion"></div>
@@ -80,6 +90,15 @@
     function showChecker() {
       document.getElementById("frontPage").classList.add("hidden");
       document.getElementById("checkerPage").classList.remove("hidden");
+    }
+
+    function togglePassword() {
+      const pwdField = document.getElementById("password");
+      if (pwdField.type === "password") {
+        pwdField.type = "text";
+      } else {
+        pwdField.type = "password";
+      }
     }
 
     function checkPassword() {
