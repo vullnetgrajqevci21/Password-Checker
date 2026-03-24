@@ -27,30 +27,12 @@
 
     button:hover { background-color: #ffc107; }
 
-    .input-container {
-      position: relative;
-      display: inline-block;
-    }
-
     input {
       padding: 12px;
       width: 300px;
       border-radius: 8px;
       border: none;
       margin-bottom: 10px;
-    }
-
-    .eye {
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      cursor: pointer;
-      font-size: 18px;
-      color: #333;
-      background: #ffdd57;
-      border-radius: 50%;
-      padding: 5px;
     }
 
     #result { margin-top: 20px; font-size: 20px; }
@@ -88,10 +70,7 @@
   <!-- Password Checker Page -->
   <div id="checkerPage" class="hidden">
     <h2>Password Strength Checker</h2>
-    <div class="input-container">
-      <input type="password" id="password" placeholder="Enter your password" onkeyup="checkPassword()">
-      <span class="eye" onclick="togglePassword()">👁</span>
-    </div>
+    <input type="password" id="password" placeholder="Enter your password" onkeyup="checkPassword()">
     <div id="result"></div>
     <div class="bar"><div class="fill" id="strengthBar"></div></div>
     <div id="suggestion"></div>
@@ -101,15 +80,6 @@
     function showChecker() {
       document.getElementById("frontPage").classList.add("hidden");
       document.getElementById("checkerPage").classList.remove("hidden");
-    }
-
-    function togglePassword() {
-      const pwdField = document.getElementById("password");
-      if (pwdField.type === "password") {
-        pwdField.type = "text";
-      } else {
-        pwdField.type = "password";
-      }
     }
 
     function checkPassword() {
